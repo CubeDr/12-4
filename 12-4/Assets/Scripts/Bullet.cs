@@ -18,5 +18,13 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position += direction * speed * Time.deltaTime;
+
+        if( Vector3.Dot( direction, target-transform.position) <=0) {
+            Collide();
+        }
 	}
+
+    private void Collide() {
+        Destroy(gameObject);
+    }
 }
