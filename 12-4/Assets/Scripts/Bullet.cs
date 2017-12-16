@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour {
         }
     }
     public float speed = 10;
+    public GameObject explosionPrefab;
 
 	// Update is called once per frame
 	void Update () {
@@ -26,5 +27,6 @@ public class Bullet : MonoBehaviour {
 
     private void Collide() {
         Destroy(gameObject);
+        Destroy( Instantiate(explosionPrefab, target, Quaternion.identity), 1);
     }
 }
